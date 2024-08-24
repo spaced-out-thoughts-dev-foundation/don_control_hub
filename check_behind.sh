@@ -30,8 +30,13 @@ done <<< "$ALL_IMAGES"
 
 if [ "$found" == true ]; then
     echo "The running container is $counter versions behind the latest."
-    make stop-and-remove
-    make run
+    if [ "$counter" -eq 0 ]; then
+        echo "The running container is up-to-date."
+    else
+        echo "The running container's image is $RUNNING_IMAGE_ID."
+        make stop-and-remove
+        make run
+    fi
 else
     echo "The running container's image was not found in the local image cache."
 fi
