@@ -1,15 +1,15 @@
 # Use an official Ruby runtime as a parent image
 FROM ruby:3.0.0
 
+# Install dependencies
+RUN apt-get update -qq
+
 # Set environment variables
 ENV APP_HOME /app
 ENV RACK_ENV production
 
 # Set the working directory inside the container
 WORKDIR $APP_HOME
-
-# Install dependencies
-RUN apt-get update -qq && apt-get install -y nodejs
 
 # Copy the Gemfile and Gemfile.lock
 COPY Gemfile Gemfile.lock ./
