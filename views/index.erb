@@ -9,5 +9,12 @@
 <body>
   <h1>Welcome to the Node Control Center!</h1>
   <p>Today’s date is <%= Time.now.strftime('%B %d, %Y') %>.</p>
+  </br>
+  <h2>Code from GitHub</h2>
+  <p>Latest Commit SHA: <%= @latest_commit_sha %></p>
+  <p>Commit Message: <%= @latest_commit_message %></p>
+  <h2>Local Code</h2>
+  <p>Latest Commit SHA: <%= @latest_commit_sha_local %></p>
+  <p>Commit Message: <%= @latest_commit_message_local %></p>
 </body>
 </html>
