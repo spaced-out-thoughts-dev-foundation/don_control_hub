@@ -31,7 +31,7 @@ end
 def cpu_usage
   top_output = `top -bn1 | grep "Cpu(s)"`
   cpu_idle = top_output.match(/id,\s*(\d+\.\d+)/)[1].to_f
-  100.0 - cpu_idle
+  (100.0 - (100.0 - cpu_idle))
 end
 
 def memory_usage
