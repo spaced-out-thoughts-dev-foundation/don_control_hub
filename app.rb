@@ -17,11 +17,5 @@ get '/' do
   @latest_commit_sha = commit['sha']
   @latest_commit_message = commit['commit']['message']
 
-  repo_path = File.expand_path('~/spaced-out-thoughts-dev-foundation/don_control_hub')
-  g = Git.open(repo_path)
-
-  @latest_commit_sha_local = g.object('HEAD').sha
-  @latest_commit_message_local = g.object('HEAD').message
-
   erb :index
 end
